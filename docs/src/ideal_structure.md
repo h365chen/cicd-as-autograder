@@ -1,0 +1,2 @@
+# Ideal Structure
+
