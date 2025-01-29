@@ -8,7 +8,6 @@ features.
 ### Marmoset Structure (By user types)
 
 - User categories: admin, instructor, teaching assistant (TA), and student.
-
 - Admin
   - can create courses
     - a course can have multiple assignments
@@ -23,10 +22,10 @@ features.
     - can dowload all submissions
     - can dowload students' last submissions
   - can view grading analytics
-    - can see number of submissions of all students on the webpage
+    - can see number of submissions of all students
     - can see the number of passed and failed tests of all submissions of a
-      student on the webpage
-    - can see detailed test outcomes of a single submission on the webpage
+      student
+    - can see detailed test outcomes of a single submission
     - can download grades in a csv file
   - can create test cases for assignments
     - each test case is usually a script that compile and executes student's
@@ -63,27 +62,28 @@ just makes use of them with the `test.properties` file as the entry point.
 
 <!-- ![Student View Details](figs/student_view_details.png) -->
 
-## Redundant features
+## Improvement
+
+As you may notice, test case development is actually a standalone process from
+Marmoset, therefore, the features related to the test case development should be
+put aside. Further, it would be better to have Marmoset to *look for* the
+correct *version* of a test setup instead of asking an instructor to upload it
+again and again.
 
 Are there any features that are redundant?
-
-Since test case development is a standalone process from Marmoset, therefore,
-the features related to the test case development should be put aside.
 
 In addition, based on my experience, managing students' enrolments in Marmoset
 is unnecessary. Worse, because Marmoset has a different class list format from
 the one used in the Learning Management System (LMS), therefore, it causes the
 instructor to maintain two class lists. If a student dropped the course, which
 is automatically reflected in the LMS, the instructor has to manually update it
-in the Marmoset's class list. It not only leads to extra work but also causes
-inconsistencies.
+in the Marmoset's class list. It not only leads to extra work for the instructor
+but it also tends to cause inconsistencies.
 
 There can be senarios where an instructor only intends to use Marmoset alone. In
 that case, I would argue set up a separate dedicated LMS would be better than
 using Marmoset as both LMS and auto-grading. At least, LMS related features
 should be a service or a plugin that can be *enabled* rather than *required*.
-
-## Missing features
 
 Are there any features that are missing?
 
@@ -102,20 +102,21 @@ Therefore, necessary features of an auto-grading system are as follows.
 - Instructors (and TAs)
   - can create assignments
     - can upload starter files for an assignment
-    - can configure assignment deadlines on the web page
+    - can configure assignment deadlines
   <!-- - can manage individual students' enrolments -->
   <!--   - can register a student for a course -->
   <!--   - can remove a student from a course -->
-  - (Removed ...)
+  - Do **NOT** need to manage students' enrolments
   - can manage submissions
     - can dowload all submissions
     - can dowload students' last submissions
   - can view grading analytics
-    - can see number of submissions of all students on the webpage
+    - can see the number of submissions of all students
     - can see the number of passed and failed tests of all submissions of a
-      student on the webpage
-    - can see detailed test outcomes of a single submission on the webpage
+      student
+    - can see detailed test outcomes of a single submission
     - can download grades in a csv file
+  - **can look for the correct version of the test code and use that for grading**
   <!-- - can create test cases for assignments -->
   <!--   - each test case is usually a script that compile and executes student's -->
   <!--     code -->
@@ -131,7 +132,6 @@ Therefore, necessary features of an auto-grading system are as follows.
   <!--       others -->
   <!-- - can upload a canonical solution to validate a test setup -->
   <!-- - can mark test setups as broken (remove flawed test setups) -->
-  - (Removed ...)
   - can re-test a submission
   - can see inconsistent re-test results
   - can grant a student with time extensions
