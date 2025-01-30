@@ -101,6 +101,7 @@ Therefore, necessary features of an auto-grading system are as follows.
     - a course can have multiple assignments
 - Instructors (and TAs)
   - can create assignments
+    - can create group assignments
     - can upload starter files for an assignment
     - can configure assignment deadlines
   <!-- - can manage individual students' enrolments -->

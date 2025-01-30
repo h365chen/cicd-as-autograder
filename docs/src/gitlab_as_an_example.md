@@ -1,18 +1,23 @@
 # GitLab As An Example
 
-To facilitate using GitLab to implement an auto-grading system, I use three tags
-for the features we discussed before, namely *Creation*, *Assessment*, and
-*Report*. *Creation* stands for course and assignment creation, *Assessment* is
-for how the system will execute test cases, and *Report* is for how the test
-outcomes should be reported.
+I choose GitLab as the Git hosting service since it is free to create a
+self-hosting instance using GitLab. It also supports various external
+authentication and authorization so it should be trivial to use your own
+authentication and authorization service or LMS for user logins.
 
-## Creation
+To facilitate using GitLab to implement an auto-grading system, I group features
+that have been discussed in the previous chapter into three categories, namely
+*Course and Assignment Creation*, *Assessment*, and *Report*, and I will discuss
+how features in each category can be implemented.
+
+## Course and Assignment Creation
 
 - Admin
   - can create courses
     - a course can have multiple assignments
 - Instructors (and TAs)
   - can create assignments
+    - can create group assignments
     - can upload starter files for an assignment
     - can configure assignment deadlines
 - Student
