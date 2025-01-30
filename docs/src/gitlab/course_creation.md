@@ -16,8 +16,8 @@ repos. Therefore, an assignment is also a group.
 
 In addition, it has Git repos served for special purposes:
 
-- A template repo for storing starter files
-- An assessment repo for storing assessment code
+- A repo for storing starter files
+- A repo for storing assessment code
 - One or many student repos
 
 If we use folder structure to present the idea, it looks like the following.
@@ -72,6 +72,36 @@ each file (leaf node) is a Git repo. However, making everything inside the
   │
   ├── README.md
   │
+  ├── root
+  │   ├── a0-starter
+  │   ├── a0-assessment
+  │   ├── a1-starter
+  │   └── a1-assessment
+  │
+  ├── term0
+  │   ├── a0-stu0
+  │   ├── a0-stu1
+  │   ├── a1-stu0
+  │   └── a1-stu1
+  │
+  ├── term1
+  │   ├── a0-stu0
+  │   ├── a0-stu1
+  │   ├── a1-stu0
+  │   └── a1-stu1
+  │
+  └── ...
+```
+
+Or
+
+### Structure #3
+
+```
+  course
+  │
+  ├── README.md
+  │
   ├── root-a0-starter
   ├── root-a0-assessment
   ├── root-a1-starter
@@ -92,14 +122,14 @@ each file (leaf node) is a Git repo. However, making everything inside the
 
 Even using a single Git repo to manage starter code and assessments, such as:
 
-### Structure #3
+### Structure #4
 
 ```
   course
   │
   ├── README.md
   │
-  ├── root (containing starter code and assessments for all assignments)
+  ├── root (containing starter code and assessment code for all assignments)
   │
   ├── term0-a0-stu0
   ├── term0-a0-stu1
