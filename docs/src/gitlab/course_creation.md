@@ -144,11 +144,15 @@ Even using a single Git repo to manage starter code and assessments, such as:
   └── ...
 ```
 
-For demonstration purpose, I will only discuss the first structure.
+For demonstration purpose, I will only discuss the first structure. Other
+structures can be similarly implemented.
 
 ## Setting assignment deadlines
 
-TODO
+Since students should use Git to track their assignment progress, so the
+instructor can just filter out the last commits before the assignment deadline
+to grade. Using GitLab, instead of configuring an assignment deadline, we only
+need a script to filter out commits by commit time.
 
 ## Summary
 
@@ -159,6 +163,6 @@ TODO
   - can create assignments [&check;]
     - can create group assignments [&check;]
     - can upload starter files for an assignment [&check;]
-    - can configure assignment deadlines
+    - can filter out Git commits by commit time ~configure assignment deadlines~ [&check;]
 - Student
   - can see assignment descriptions [&check;]
