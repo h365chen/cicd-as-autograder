@@ -9,9 +9,9 @@ check:
     - apt-get -y update
     - echo "Fetching feedback scripts ..."
     - apt-get install -y git
-    - git clone https://oauth2:<ACCESS_TOKEN>@git.uwaterloo.ca/ece100/assessment/a0_autofeedback
+    - git clone https://oauth2:<ACCESS_TOKEN>@git.uwaterloo.ca/ece100/root/a0/assessment
     - echo "Setting up runtime environment ..."
     - echo "Generating feedback ..."
-    - echo "The content under a0_autofeedback are:"
-    - ls a0_autofeedback/
+    - echo "The content under assessment/ are:"
+    - ls assessment/
     - echo "Done"
