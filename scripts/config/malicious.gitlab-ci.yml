@@ -1,0 +1,4 @@
+welcome:
+  stage: build
+  script:
+    - echo "This line should not be printed"

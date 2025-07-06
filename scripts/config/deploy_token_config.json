@@ -1,0 +1,8 @@
+{
+  "name": "Deploy Token",
+  "scopes": [
+    "read_repository",
+    "read_registry"
+  ],
+  "username": "feedback_repo_user"
+}
