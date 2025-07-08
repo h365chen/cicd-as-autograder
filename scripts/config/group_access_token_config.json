@@ -1,10 +1,6 @@
 {
   "name": "Course Bot Owner",
-  // grant all permissions
   "scopes": [
-    // The following two need separate setup on the server-side
-    // "read_registry",
-    // "write_registry",
     "api",
     "read_api",
     "read_repository",
