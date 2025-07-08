@@ -11,10 +11,10 @@ ece100
 │       ├── starter
 │       └── assessment
 │
-└── term0
+└── term-00
     └── a0
-        ├── stu0
-        ├── stu1
+        ├── stu-00
+        ├── stu-01
         └── ...
 ```
 

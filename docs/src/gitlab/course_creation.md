@@ -37,24 +37,24 @@ If we use folder structure to present the idea, it looks like the following.
   │       ├── starter
   │       └── assessment
   │
-  ├── term0
+  ├── term-00
   │   ├── a0
-  │   │   ├── stu0
-  │   │   ├── stu1
+  │   │   ├── stu-00
+  │   │   ├── stu-01
   │   │   └── ...
   │   └── a1
-  │       ├── stu0
-  │       ├── stu1
+  │       ├── stu-00
+  │       ├── stu-01
   │       └── ...
   │
-  ├── term1
+  ├── term-01
   │   ├── a0
-  │   │   ├── stu0
-  │   │   ├── stu1
+  │   │   ├── stu-00
+  │   │   ├── stu-01
   │   │   └── ...
   │   └── a1
-  │       ├── stu0
-  │       ├── stu1
+  │       ├── stu-00
+  │       ├── stu-01
   │       └── ...
   │
   └── ...
@@ -78,17 +78,17 @@ each file (leaf node) is a Git repo. However, making everything inside the
   │   ├── a1-starter
   │   └── a1-assessment
   │
-  ├── term0
-  │   ├── a0-stu0
-  │   ├── a0-stu1
-  │   ├── a1-stu0
-  │   └── a1-stu1
+  ├── term-00
+  │   ├── a0-stu-00
+  │   ├── a0-stu-01
+  │   ├── a1-stu-00
+  │   └── a1-stu-01
   │
-  ├── term1
-  │   ├── a0-stu0
-  │   ├── a0-stu1
-  │   ├── a1-stu0
-  │   └── a1-stu1
+  ├── term-01
+  │   ├── a0-stu-00
+  │   ├── a0-stu-01
+  │   ├── a1-stu-00
+  │   └── a1-stu-01
   │
   └── ...
 ```
@@ -107,15 +107,15 @@ Or
   ├── root-a1-starter
   ├── root-a1-assessment
   │
-  ├── term0-a0-stu0
-  ├── term0-a0-stu1
-  ├── term0-a1-stu0
-  ├── term0-a1-stu1
+  ├── term-00-a0-stu-00
+  ├── term-00-a0-stu-01
+  ├── term-00-a1-stu-00
+  ├── term-00-a1-stu-01
   │
-  ├── term1-a0-stu0
-  ├── term1-a0-stu1
-  ├── term1-a1-stu0
-  ├── term1-a1-stu1
+  ├── term-01-a0-stu-00
+  ├── term-01-a0-stu-01
+  ├── term-01-a1-stu-00
+  ├── term-01-a1-stu-01
   │
   └── ...
 ```
@@ -131,15 +131,15 @@ Even using a single Git repo to manage starter code and assessments, such as:
   │
   ├── root (containing starter code and assessment code for all assignments)
   │
-  ├── term0-a0-stu0
-  ├── term0-a0-stu1
-  ├── term0-a1-stu0
-  ├── term0-a1-stu1
+  ├── term-00-a0-stu-00
+  ├── term-00-a0-stu-01
+  ├── term-00-a1-stu-00
+  ├── term-00-a1-stu-01
   │
-  ├── term1-a0-stu0
-  ├── term1-a0-stu1
-  ├── term1-a1-stu0
-  ├── term1-a1-stu1
+  ├── term-01-a0-stu-00
+  ├── term-01-a0-stu-01
+  ├── term-01-a1-stu-00
+  ├── term-01-a1-stu-01
   │
   └── ...
 ```
