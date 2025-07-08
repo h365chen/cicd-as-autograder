@@ -1,6 +1,6 @@
 #!/bin/bash
 
-COURSE_NAME=h365chen-ece150
+COURSE_NAME=ece100
 
 # assume you have proper `glab` auth already
 glab api --silent --method DELETE /groups/$COURSE_NAME

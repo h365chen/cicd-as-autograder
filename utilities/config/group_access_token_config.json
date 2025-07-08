@@ -1,21 +1,17 @@
 {
-  "name": "Dummy Stu Developer",
-  // grant all permissions
+  "name": "Course Bot Owner",
   "scopes": [
-    // The following two need separate setup on the server-side
-    // "read_registry",
-    // "write_registry",
     "api",
     "read_api",
     "read_repository",
     "write_repository"
   ],
-  "expires_at": "2024-05-01",
+  "expires_at": "2026-05-01",
   // Access level. Valid values are
   // 10 (Guest)
   // 20 (Reporter)
   // 30 (Developer)
   // 40 (Maintainer)
   // and 50 (Owner)
-  "access_level": 30
+  "access_level": 50
 }
