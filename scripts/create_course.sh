@@ -142,8 +142,6 @@ docker run --rm -it \
        --executor "docker" \
        --docker-image $BASE_DOCKER_IMAGE
 
-echo "======================"
-
 # ===
 # create course/term-00 subgroup
 gl_response=$(
@@ -155,7 +153,7 @@ gl_response=$(
 
 term_group_id=$(
     echo "$gl_response" | jq -r .id
-        )
+             )
 
 # ===
 # create course/term-00/a0 subgroup
@@ -167,7 +165,48 @@ glab api --silent --method POST /groups \
 mkdir ${COURSE_NAME}/term-00/
 mkdir ${COURSE_NAME}/term-00/a0
 
-echo "======================"
+# ===
+# make it more secure - environment variables
+
+# create a deploy token
+
+# :id will be properly replaced if we are inside the git repo
+cd ${COURSE_NAME}/root/a0/assessment/
+
+gl_response=$(
+    glab api --method POST /projects/:id/deploy_tokens \
+        --header "Content-Type:application/json" \
+        --input $home_path/config/deploy_token_config.json
+)
+
+check_response "$gl_response"
+
+deploy_token=$(echo "$gl_response" | jq -r .token)
+
+# make env variables visible for the entire group
+glab api --silent --method POST /groups/${COURSE_NAME}/variables \
+     --field key="CI_FEEDBACK_REPO_USER" \
+     --field value="feedback_repo_user" \
+     --field masked="true"
+
+glab api --silent --method POST /groups/${COURSE_NAME}/variables \
+     --field key="CI_FEEDBACK_REPO_TOKEN" \
+     --field value="$deploy_token" \
+     --field masked="true"
+
+cd $home_path
+
+echo "=== setting up CI config path ==="
+
+# :id will be properly replaced if we are inside the git repo
+cd ${COURSE_NAME}/root/a0/starter/
+
+glab api --silent --method PUT /projects/:id \
+     --field ci_config_path=".gitlab-ci.yml@${COURSE_NAME}/root/a0/assessment"
+
+cd $home_path
+
+echo "=== MANUAL SETUP NEEDED ==="
 
 set -x
 cp config/sample.gitlab-ci.yml ${COURSE_NAME}/root/a0/starter/.gitlab-ci.yml
