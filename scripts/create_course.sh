@@ -1,6 +1,6 @@
 #!/bin/bash
 
-COURSE_NAME=ece104
+COURSE_NAME=ece100
 HOSTNAME=git.uwaterloo.ca
 API_HOST="${HOSTNAME}" # TODO non-80 port will cause problems in ci_config_path
 API_PROTOCOL=https # or https
@@ -74,9 +74,6 @@ mkdir ${COURSE_NAME}/root/a0/
 # ===
 # create repos
 
-# home path
-home_path=$(pwd)
-
 mkdir ${COURSE_NAME}/root/a0/assessment
 cd ${COURSE_NAME}/root/a0/assessment
 git init
@@ -144,6 +141,31 @@ docker run --rm -it \
        --token "$runner_token" \
        --executor "docker" \
        --docker-image $BASE_DOCKER_IMAGE
+
+echo "======================"
+
+# ===
+# create course/term-00 subgroup
+gl_response=$(
+    glab api --method POST /groups \
+         --field path="term-00" \
+         --field name="term-00" \
+         --field parent_id="$group_id"
+           )
+
+term_group_id=$(
+    echo "$gl_response" | jq -r .id
+        )
+
+# ===
+# create course/term-00/a0 subgroup
+glab api --silent --method POST /groups \
+     --field path="a0" \
+     --field name="a0" \
+     --field parent_id="$term_group_id"
+
+mkdir ${COURSE_NAME}/term-00/
+mkdir ${COURSE_NAME}/term-00/a0
 
 echo "======================"
 
