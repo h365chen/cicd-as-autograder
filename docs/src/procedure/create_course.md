@@ -7,6 +7,7 @@ ece100
 │
 ├── root
 │   └── a0
+│       ├── ci
 │       ├── starter
 │       └── assessment
 │
@@ -22,16 +23,17 @@ structure on GitLab.
 
 ### Setup folders and groups
 
-```shell
+```bash
 # create folder structure
 mkdir ece100
 mkdir ece100/root/
 mkdir ece100/root/a0/
+mkdir ece100/root/a0/ci
 mkdir ece100/root/a0/starter
 mkdir ece100/root/a0/assessment
 ```
 
-```shell
+```bash
 # create groups on GitLab
 # such operations can be done using the REST API, too
 # refer to the GitLab document for how to achieve it
@@ -75,7 +77,7 @@ glab api --method POST /groups --field path="ece100" --field name="ece100"
 
 Note down the `id`, we will use it for creating subgroups `root`.
 
-```shell
+```bash
 glab api \
     --method POST /groups \
     --field path="root" \
@@ -85,8 +87,14 @@ glab api \
 
 This process will be repeated once more for the `a0` subgroup.
 
+To query existing groups
+
+```bash
+glab api /groups
+```
+
 To delete the group (e.g., ece100), use following:
 
-```shell
+```bash
 glab api --method DELETE /groups/94728
 ```

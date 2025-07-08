@@ -18,11 +18,11 @@ GitLab without touching the web UI.
 
 ### Setup
 
-```shell
+```bash
 $ brew install glab
 ```
 
-```shell
+```bash
 $ glab auth login
 ```
 
@@ -44,7 +44,8 @@ hosts:
     gitlab.com:
         api_protocol: https
         api_host: gitlab.com
-        # Your GitLab access token. To get one, read https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html
+        # Your GitLab access token. To get one,
+        # see https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html
         token:
     git.uwaterloo.ca:
         token: <YOUR_ACCESS_TOKEN>
@@ -69,7 +70,7 @@ no_prompt: true
 
 Let's check the status
 
-```shell
+```bash
 $ glab auth status
 gitlab.com
   x gitlab.com: api call failed: GET https://gitlab.com/api/v4/user: 401 {message: 401 Unauthorized}

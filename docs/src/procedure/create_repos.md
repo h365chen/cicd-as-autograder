@@ -1,4 +1,4 @@
-# Setup Repos
+# Create Repos
 
 ## Setup repos under ece100/root/a0/
 
@@ -12,7 +12,7 @@ let's setup these repos.
 To create a repo, we need to create the folder first, then run `git init`. For
 example, for `root/a0/assessment`.
 
-```shell
+```bash
 home_path=$(pwd)
 
 mkdir ece100/root/a0/assessment
@@ -26,7 +26,7 @@ cd $home_path
 
 Similarily, we can create the `starter` repo.
 
-```shell
+```bash
 home_path=$(pwd)
 
 mkdir ece100/root/a0/starter
@@ -38,21 +38,18 @@ git pull origin main
 cd $home_path
 ```
 
+The `ece100/root/a0/ci` repo will be discussed later.
+
 To delete the `assessment` repo, do
 
-```shell
+```bash
 user@host:~/ece100/root/a0/assessment$ glab repo delete -y ece100/root/a0/assessment
 user@host:~/ece100/root/a0/assessment$ rm -rf ece100/root/a0/assessment
 ```
 
 To delete the `starter` repo, do
 
-```shell
+```bash
 user@host:~/ece100/root/a0/assessment$ glab repo delete -y ece100/root/a0/starter
 user@host:~/ece100/root/a0/assessment$ rm -rf ece100/root/a0/starter
 ```
-
-## Setup repos under offerings/
-
-After we have the feedback scripts and starter code ready, we can then
-distribute the starter code (`root/a0/starter`) to students' repos.

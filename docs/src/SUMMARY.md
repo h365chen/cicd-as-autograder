@@ -10,13 +10,23 @@
 
 - [Procedure](./procedure.md)
 
-  - [Create a course](./procedure/create_course.md)
+  - [Create Courses](./procedure/create_course.md)
 
-  - [Setup repos](./procedure/setup_repos.md)
+  - [Create Repos](./procedure/create_repos.md)
 
-  - [Create GitLab runners](./procedure/create_runners.md)
+  - [Create GitLab Runners](./procedure/create_runners.md)
 
-  - [Make it more secure](./procedure/make_it_more_secure.md)
+  - [Setup CI/CD](./procedure/setup_ci_yml.md)
+
+- [Make It More Secure](./make_it_more_secure.md)
+
+  - [Group Access Tokens](./more_secure/group_tokens.md)
+
+  - [Environment Variables](./more_secure/environment_variables.md)
+
+  - [Prevent Changing CI/CD](./more_secure/prevent_changing_ci_yml.md)
+
+- [Setup Student Repos](./distribute_student_repos.md)
 
 - [Utilities](./utilities.md)
 

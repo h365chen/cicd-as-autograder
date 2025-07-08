@@ -35,7 +35,7 @@ as above.
 I set `run_untagged` to `true` for simplicity. It means the runner can be used
 for any repo.
 
-```shell
+```bash
 glab api --method POST /user/runners \
     --field runner_type="group_type" \
     --field group_id=94733 \
@@ -55,7 +55,7 @@ down.
 
 In case you forgot to note it down, you can reset it by
 
-```shell
+```bash
 glab api --method POST /runners/1245/reset_authentication_token
 ```
 
@@ -63,7 +63,7 @@ glab api --method POST /runners/1245/reset_authentication_token
 
 With the docker engine running on my local machine, then I do:
 
-```shell
+```bash
 TOKEN=<RUNNER_TOKEN>
 
 docker volume create gitlab-runner-config
@@ -91,43 +91,3 @@ docker run --rm -it \
 If gitlab-runner is in a container while you still want to use docker as the
 executor, then you need to provide the login info for gitlab-runner to access
 the docker hub.
-
-## Setup `.gitlab-ci.yml`
-
-Create a `.gitlab-ci.yml` with following content and put it as
-`ece100/root/a0/ci/.gitlab-ci.yml`.
-
-(A sample file is `config/sample.gitlab-ci.yml`)
-
-```yaml
-welcome:
-  stage: build
-  script:
-    - echo "Hello, $GITLAB_USER_LOGIN!"
-
-check:
-  stage: test
-  script:
-    - apt-get -y update
-    - echo "Fetching feedback scripts ..."
-    - apt-get install -y git
-    - git clone https://<USERNAME>:<ACCESS_TOKEN>@git.uwaterloo.ca/ece100/root/a0/assessment
-    - echo "Setting up runtime environment ..."
-    - echo "Generating feedback ..."
-    - echo "The content under assessment/ are:"
-    - ls assessment/
-    - echo "Done"
-```
-
-Replace `<ACCESS_TOKEN>` to your personal access token for now. We will make it
-more secure afterwards.
-
-Finally, git add, commit, and push.
-
-```shell
-git add .gitlab-ci.yml
-git commit -m 'try sample ci'
-git push --set-upstream origin main
-```
-
-We can then check the pipeline status on the web, or using `glab ci trace`.
