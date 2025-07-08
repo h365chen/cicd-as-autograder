@@ -26,7 +26,7 @@
 
   - [Prevent Changing CI/CD](./more_secure/prevent_changing_ci_yml.md)
 
-- [Setup Student Repos](./distribute_student_repos.md)
+- [Setup Student Repos](./setup_student_repos.md)
 
 - [Utilities](./utilities.md)
 
