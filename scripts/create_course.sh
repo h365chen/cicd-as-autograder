@@ -1,7 +1,6 @@
 #!/bin/bash
-# ./create_course.sh 1> create_course.log 2>&1
 
-COURSE_NAME=ece103
+COURSE_NAME=ece104
 HOSTNAME=git.uwaterloo.ca
 API_HOST="${HOSTNAME}" # TODO non-80 port will cause problems in ci_config_path
 API_PROTOCOL=https # or https
@@ -147,3 +146,22 @@ docker run --rm -it \
        --docker-image $BASE_DOCKER_IMAGE
 
 echo "======================"
+
+set -x
+cp config/sample.gitlab-ci.yml ${COURSE_NAME}/root/a0/starter/.gitlab-ci.yml
+{ set +x; } 2>/dev/null
+echo "The sample .gitlab-ci.yml has been copied into the starter repo"
+echo "You need to modify the <ACCESS_TOKEN> to your personal access token"
+echo "and the <COURSE> to make it work"
+echo ""
+echo "Once you've done it, use the following command to make a commit to test it"
+echo "  cd ${COURSE_NAME}/root/a0/starter/"
+echo "  git add .gitlab-ci.yml"
+echo "  git commit -m 'add .gitlab-ci.yml'"
+echo "  git push --set-upstream origin main"
+echo ""
+echo "You can verify it works by manually executing inside the starter repo"
+echo "  glab ci status"
+echo ""
+echo "You can use following commands to retrieve logs"
+echo "  glab ci trace"
