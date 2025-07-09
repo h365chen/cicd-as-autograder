@@ -1,7 +1,8 @@
 # Procedure
 
-This file documents the procedure to create gitlab groups and repos structured
-in a way to allow educators to easily manage auto-feedback scripts.
+This chapter documents the procedure for creating GitLab groups and repositories
+structured in a way that allows educators to easily manage auto-feedback
+scripts.
 
 ## Personal access token
 
@@ -56,11 +57,11 @@ hosts:
 
 ```
 
-By default, `glab` uses `gitlab.com` as the default hostname, which means if you
-are not in a git repo, it will assume you are trying to contacting `gitlab.com`
-by default. You can change it to match your need for convenience.
+By default, `glab` uses `gitlab.com` as the default hostname. This means that if
+you are not inside a Git repository, it will assume you are trying to contact
+`gitlab.com`. You can change this default setting to better suit your needs.
 
-Here are some changes I made to match my need.
+Here are some changes I made to match my setup:
 
 ```yaml
 check_update: false

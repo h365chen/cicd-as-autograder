@@ -1,5 +1,5 @@
 # Utilities
 
-Useful scripts have been put into the `utilities/` folder.
+Useful scripts have been placed in the `utilities/` folder.
 
-They need to be executed under the `utilities/` folder.
+These scripts should be executed from within the `utilities/` directory.

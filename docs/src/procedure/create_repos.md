@@ -2,18 +2,18 @@
 
 ## Setup repos under ece100/root/a0/
 
-The `ece100/root/a0/` folder (group) contains repos for auto-feedback scripts
-`assessment/` and starter code `starter/`.
+The `ece100/root/a0/` folder (group) contains the two most relevant repositories
+for auto-feedback scripts: `assessment/` and `starter/`.
 
-We will later setup continuous integration (CI) so that whenever a new
-submission is made, the auto-feedback scripts get automatically run. For now,
-let's setup these repos.
+Later, we will set up Continuous Integration (CI) so that whenever a new
+submission is made, the auto-feedback scripts run automatically. For now, let's
+set up these repositories.
 
-To create a repo, we need to create the folder first, then run `git init`. For
-example, for `root/a0/assessment`.
+To create a repository, first create the folder, then run `git init`. For
+example, we can do the following to set up `root/a0/assessment`.
 
 ```bash
-home_path=$(pwd)
+home_path=$(pwd) # the parent folder of ece100
 
 mkdir ece100/root/a0/assessment
 cd ece100/root/a0/assessment

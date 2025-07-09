@@ -1,44 +1,42 @@
 # Introduction
 
 Git is a popular tool for version control. Almost every software engineering
-student knows it, or at least has been recommended to learn it for group
-projects. Recognizing the necessasities, institutions or departments having
-large potion of programming content typically take advantage of existing Git
-hosting services, such as GitHub, GitLab, or Gitea. Some of these Git hosting
-services also provide a self-hosting option. For example, University of Waterloo
-hosts its own GitLab instance at <https://git.uwaterloo.ca> instead of using the
-default one <https://gitlab.com>. Essential features such as repo hosting,
-continuous integration and continuous delivery (CI/CD), container registry for
-docker images are available in the service regardless whether it is self-hosted
-or externally hosted.
+student knows it or has at least been encouraged to learn it for group projects.
+Recognizing this need, institutions or departments with a significant amount of
+programming content typically take advantage of existing Git hosting services,
+such as GitHub, GitLab, or Gitea. Some of these services also offer self-hosting
+options. For example, the University of Waterloo hosts its own GitLab instance
+at <https://git.uwaterloo.ca> instead of using the default instance at
+<https://gitlab.com>. Essential features such as repository hosting, continuous
+integration and continuous delivery (CI/CD), and container registries for Docker
+images are available, whether the service is self-hosted or externally hosted.
 
-Interestingly, while students may use a Git host service to manage their code,
-they are often required to submit their code to an auto-grading system which is
-not integrated with the Git host service for assessment. For example, students
-need to submit their code to Marmoset, an Apache Tomcat and MySQL based
-auto-grading system for assessment. The assessment procedure is pretty much the
-same as a common integration test, that when Marmoset receives a new submission,
-it invokes multiple test cases pre-composed by the instructor, and then report
-the test outcomes. A test outcome is typically a pass or a fail. If the test
-case failed, there would be some log messages printed to the standard output by
-the test case to aid students for bug diagnosis.
+Interestingly, while students may use a Git hosting service to manage their
+code, they are often required to submit it to an auto-grading system that is not
+integrated with the Git service. For example, students may need to submit their
+code to Marmoset, an auto-grading system based on Apache Tomcat and MySQL. The
+assessment procedure in Marmoset is similar to a typical integration test: when
+Marmoset receives a new submission, it runs multiple pre-written test cases
+prepared by the instructor and reports the outcomes. A test result is typically
+either a pass or a fail. If a test case fails, log messages printed to standard
+output help students diagnose bugs.
 
-Comparing Marmoset and CI/CD in the Git hosting service, I consider the most
-significant difference, from the student's perspective, is that not all test
-outcomes are visible, since the instructor has the control over which test case,
-and when a test case can be shown. From an instructor's perspective, Marmoset
-provides more convinience for managing students' enrolments. For example, it
-allows an instructor to upload a class file to register students. It also allows
-an instructor to download the every student's latest submission conveniently.
+Comparing Marmoset to CI/CD pipelines in Git hosting services, the most
+significant difference from a student’s perspective is visibility. Not all test
+results are visible in Marmoset, as instructors control which test cases are
+shown and when. From an instructor’s perspective, Marmoset offers more
+convenience in managing student enrollments. For instance, instructors can
+upload a class file to register students and easily download each student’s
+latest submission.
 
-However, from my experience, the lack of code comparison between consecutive
-submissions in Marmoset is a headache. It is neither trivial to comment on
-student's code. The latter two features are already supported by many Git
-hosting services. Last but not least, many auto-grading systems have not changed
-for many years. On contrast, the CI/CD in the Git hosting service has been
-constantly improving, such as introducing secret variables and many other useful
-features for investigating code analytics.
+However, in my experience, the lack of code comparison between consecutive
+submissions in Marmoset is a major drawback. It is also not straightforward to
+comment on a student’s code. These features, however, are already well-supported
+by many Git hosting services. Furthermore, many auto-grading systems have not
+seen meaningful updates in years. In contrast, CI/CD features in Git hosting
+services are continually improving, with additions like secret variables and
+advanced analytics tools.
 
-This project is to explore to what extent we can make use of Git hosting
-services as auto-grading systems so that we can take advantage of many useful
-features they provide.
+This project explores the extent to which Git hosting services can be used as
+auto-grading systems, allowing us to leverage the many valuable features they
+offer.

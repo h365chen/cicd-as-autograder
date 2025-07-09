@@ -1,26 +1,37 @@
 # Course and Assignment Creation
 
-GitLab allows users to create groups. A GitLab group can have multiple Git
-repos. It can also have one or more subgroups. The purpose of a group is to fold
-Git repos so that it will not appear too messy for a user's homepage. It is like
-creating a folder to manage files.
+As mentioned earlier, the features we aim to implement are:
+
+- Admin
+  - can create courses
+    - a course can have multiple assignments
+- Instructors (and TAs)
+  - can create assignments
+    - can create group assignments
+    - can upload starter files for an assignment
+    - can configure assignment deadlines
+- Student
+  - can see assignment descriptions
 
 ## Course Creation
 
-A course is just a GitLab group.
+GitLab allows users to create *group*s. A GitLab group can contain multiple Git
+repositories and may also include one or more subgroups. The purpose of a group
+is to organize repositories, making a user's homepage less cluttered, similar to
+using folders to manage files. Here, a course is simply a GitLab group.
 
 ## Assignment Creation
 
-A course may have multiple assignments, and an assignment may have multiple Git
-repos. Therefore, an assignment is also a group.
+A course may have multiple assignments, and an assignment may include multiple
+Git repositories. Therefore, an assignment is also represented as a group.
 
-In addition, it has Git repos served for special purposes:
+Additionally, each assignment group contains Git repositories for specific purposes:
 
-- A repo for storing starter files
-- A repo for storing assessment code
-- One or many student repos
+- A repository for storing starter files
+- A repository for storing assessment code
+- One or more student repositories
 
-If we use folder structure to present the idea, it looks like the following.
+Using a folder structure to illustrate the idea, it would look like the following:
 
 ### Structure #1
 
@@ -144,15 +155,15 @@ Even using a single Git repo to manage starter code and assessments, such as:
   └── ...
 ```
 
-For demonstration purpose, I will only discuss the first structure. Other
-structures can be similarly implemented.
+For demonstration purposes, I will only discuss the first structure. Other
+structures can be implemented in a similar manner.
 
-## Setting assignment deadlines
+## Setting Assignment Deadlines
 
-Since students should use Git to track their assignment progress, so the
-instructor can just filter out the last commits before the assignment deadline
-to grade. Using GitLab, instead of configuring an assignment deadline, we only
-need a script to filter out commits by commit time.
+Since students will use Git to track their assignment progress, instructors can
+simply filter out the last commits made before the assignment deadline for
+grading. Using GitLab, instead of configuring an assignment deadline within the
+system, we only need a script that filters commits based on their commit time.
 
 ## Summary
 

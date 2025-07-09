@@ -1,29 +1,31 @@
 # Continuous integration, delivery, and deployment (CI/CD)
 
-Although CI/CD is commonly used for various testing in industry, I consider I
-don't want to over-relying on it to run my feedback scripts. Another reason is I
-would like to be able to manually run the scripts conveniently locally.
+Although CI/CD is commonly used for various types of testing in industry, I
+prefer not to overly rely on it to run my feedback scripts. One reason is that I
+want to be able to conveniently run the scripts manually on my local machine.
 
-Therefore, GitLab's CI/CD only serves two purposes:
+Therefore, GitLab's CI/CD serves only two purposes:
 
-- Invoke a sandbox environment such as a gitlab-runner docker container to run
-  my feedback scripts
-- There is only one single entry such as `feedback.sh` to my feedback scripts,
-  the container will call `./feedback.sh`, then collect its results
+- To invoke a sandbox environment, such as a GitLab Runner Docker container, to
+  run the feedback scripts
+- To provide a single entry point (e.g., `feedback.sh`) for the feedback
+  process. The container runs `./feedback.sh` and then collects the results.
 
-The logic about how to provide feedback is completely scripted in the
-`ece100/root/a0/assessment` repo.
+The logic for generating feedback is entirely scripted within the
+`ece100/root/a0/assessment` repository.
 
 ## GitLab Job Runners
 
-A gitlab-runner is an executor to run CI/CD jobs on machines outside GitLab.
-There are two steps to create a runner.
+A GitLab Runner is an executor that runs CI/CD jobs on machines outside of
+GitLab. There are two main steps to create a runner:
 
-1. Create a runner instance on GitLab. This is more like to ask GitLab for an
-   runner id so that the actual runner can use that to communicate with GitLab.
-1. Create the actual runner running outside of GitLab. It can be on your laptop,
-   or other machines. For simplicity, I will create a gitlab-runner docker
-   container running on my laptop here.
+1. **Register the runner on GitLab** This step involves creating a runner entry
+   in GitLab. It's essentially requesting a runner token or ID that the actual
+   runner will use to authenticate and communicate with GitLab.
+
+2. **Set up the actual runner on an external machine** The runner can be
+   installed on your laptop or any other machine. For simplicity, I will create
+   a GitLab Runner Docker container running on my laptop.
 
 See the [execution flow](https://docs.gitlab.com/runner/#runner-execution-flow)
 
@@ -33,7 +35,7 @@ Here I create a shared runner for the entire course, the `group_id` is the same
 as above.
 
 I set `run_untagged` to `true` for simplicity. It means the runner can be used
-for any repo.
+for any repo inside the group.
 
 ```bash
 glab api --method POST /user/runners \

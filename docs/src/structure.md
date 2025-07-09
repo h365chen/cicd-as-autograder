@@ -1,8 +1,9 @@
 # Structure
 
-## What do we need from an auto-grading system?
 
-I will use the auto-grading system Marmoset as the example here and show you its
+## What features do we currently have in auto-grading systems?
+
+I will use the auto-grading system **Marmoset** as an example to demonstrate its
 features.
 
 ### Marmoset Structure (By user types)
@@ -50,46 +51,41 @@ features.
   - can see assignment descriptions
   - can see test outcomes
 
-Note that for above features, test case development is entirely up to the
-instructor. Marmoset does not provide any support in developing test cases. It
-just makes use of them with the `test.properties` file as the entry point.
+Note that the above features, test case development is entirely up to the
+instructor. Marmoset does not provide any support for developing test cases; it
+simply uses them, with the `test.properties` file serving as the entry point for
+locating the test cases.
 
-<!-- ![Courses](figs/marmoset_courses.png) -->
 
-<!-- ![Instructor View](figs/instructor_view.png) -->
+## What can be improved?
 
-<!-- ![Instructor View Details](figs/instructor_view_details.png) -->
+As you may notice, test case development is actually a separate process from
+Marmoset. Therefore, features related to test case development should be
+considered independent. Furthermore, it would be better if Marmoset could
+*automatically identify* the correct *version* of a test setup, instead of
+requiring instructors to repeatedly upload it.
 
-<!-- ![Student View Details](figs/student_view_details.png) -->
+### Are there any features that are redundant?
 
-## Improvement
+Based on my experience, managing students' enrollments in Marmoset is
+unnecessary. Even worse, Marmoset uses a different class list format from the
+one used in the Learning Management System (LMS), which forces instructors to
+maintain two separate class lists. If a student drops the course (something that
+is automatically updated in the LMS), the instructor must manually reflect that
+change in Marmoset. This not only creates extra work but also introduces the
+risk of inconsistencies.
 
-As you may notice, test case development is actually a standalone process from
-Marmoset, therefore, the features related to the test case development should be
-put aside. Further, it would be better to have Marmoset to *look for* the
-correct *version* of a test setup instead of asking an instructor to upload it
-again and again.
+There may be scenarios where an instructor intends to use only the auto-grading
+features. In such cases, I would argue that setting up a dedicated LMS is better
+than using Marmoset as both an LMS and an auto-grading system. At the very
+least, LMS-related features should be a service or plugin that can be *enabled*,
+rather than *required*.
 
-Are there any features that are redundant?
+### Are there any features that are missing?
 
-In addition, based on my experience, managing students' enrolments in Marmoset
-is unnecessary. Worse, because Marmoset has a different class list format from
-the one used in the Learning Management System (LMS), therefore, it causes the
-instructor to maintain two class lists. If a student dropped the course, which
-is automatically reflected in the LMS, the instructor has to manually update it
-in the Marmoset's class list. It not only leads to extra work for the instructor
-but it also tends to cause inconsistencies.
-
-There can be senarios where an instructor only intends to use Marmoset alone. In
-that case, I would argue set up a separate dedicated LMS would be better than
-using Marmoset as both LMS and auto-grading. At least, LMS related features
-should be a service or a plugin that can be *enabled* rather than *required*.
-
-Are there any features that are missing?
-
-The most essential feature that is missing is that Marmoset does not allow
-creating group assignments, or it does not provide a feature for an instructor
-to manage groups.
+The most essential missing feature is the lack of support for group assignments.
+Marmoset does not allow the creation of group assignments or provide any
+features for instructors to manage student groups.
 
 
 ## Ideal structure
@@ -104,9 +100,9 @@ Therefore, necessary features of an auto-grading system are as follows.
     - can create group assignments
     - can upload starter files for an assignment
     - can configure assignment deadlines
-  <!-- - can manage individual students' enrolments -->
-  <!--   - can register a student for a course -->
-  <!--   - can remove a student from a course -->
+  - ~can manage individual students' enrolments~
+    <!-- - can register a student for a course -->
+    <!-- - can remove a student from a course -->
   - Do **NOT** need to manage students' enrolments
   - can manage submissions
     - can dowload all submissions
@@ -118,7 +114,7 @@ Therefore, necessary features of an auto-grading system are as follows.
     - can see detailed test outcomes of a single submission
     - can download grades in a csv file
   - **can look for the correct version of the test code and use that for grading**
-  <!-- - can create test cases for assignments -->
+  - ~can create test cases for assignments~
   <!--   - each test case is usually a script that compile and executes student's -->
   <!--     code -->
   <!--   - each test case usually compares the expected output and the actual output -->

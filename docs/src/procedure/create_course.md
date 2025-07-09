@@ -21,6 +21,9 @@ ece100
 It shows the folder structure on my local file system as well as the group
 structure on GitLab.
 
+You may notice an additional `ece100/root/a0/ci` folder. We will discuss the
+purpose of creating this folder in a later chapter.
+
 ### Setup folders and groups
 
 ```bash
@@ -86,6 +89,14 @@ glab api \
 ```
 
 This process will be repeated once more for the `a0` subgroup.
+
+```bash
+glab api \
+    --method POST /groups \
+    --field path="a0" \
+    --field name="a0" \
+    --field parent_id=<id_of_the_root_group>
+```
 
 To query existing groups
 

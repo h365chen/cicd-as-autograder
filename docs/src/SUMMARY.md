@@ -8,6 +8,10 @@
 
   - [Course Creation](./gitlab/course_creation.md)
 
+  - [Assessment](./gitlab/assessment.md)
+
+  - [Report](./gitlab/report.md)
+
 - [Procedure](./procedure.md)
 
   - [Create Courses](./procedure/create_course.md)

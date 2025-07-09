@@ -33,7 +33,7 @@ HIGHLY UNSAFE**)
 
 We will make it more secure afterwards.
 
-Finally, git add, commit, and push.
+Finally, `git add`, `git commit`, and `git push`.
 
 ```bash
 git add .gitlab-ci.yml
@@ -41,8 +41,8 @@ git commit -m 'try sample ci'
 git push --set-upstream origin main
 ```
 
-For this commit and all afterwards commits, the pipeline will be triggered, and
-GitLab will refer to this `.gitlab-ci.yml` for executing the pipeline.
+For this commit and all subsequent commits, the pipeline will be triggered, and
+GitLab will refer to the `.gitlab-ci.yml` file to execute the pipeline.
 
-The pipeline status can be checked on the web, or using `glab ci trace` through
-the command line.
+The pipeline status can be checked on the web interface or via the command line
+using `glab ci trace`.

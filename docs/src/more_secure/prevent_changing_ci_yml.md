@@ -1,13 +1,15 @@
 # Prevent students from changing the `.gitlab-ci.yml` file
 
 The idea is to configure the environment variable `CI_CONFIG_PATH` so that
-gitlab-runner will never run the `.gitlab-ci.yml` inside the student's repo, but
-rather than fetching it from a repo that is only accessible by us. See [custom
-CI/CD configuration
-file](https://docs.gitlab.com/ee/ci/pipelines/settings.html#specify-a-custom-cicd-configuration-file).
+GitLab Runner never executes the `.gitlab-ci.yml` file inside a student's
+repository. Instead, it fetches the pipeline configuration from a separate
+repository that is only accessible to instructors and staff.
 
-A proper approach is to create a third dedicated repo under the `ece100/root/a0`
-group. For example, here I refer it as `ece100/root/a0/ci`.
+See the official documentation on [custom CI/CD configuration
+files](https://docs.gitlab.com/ee/ci/pipelines/settings.html#specify-a-custom-cicd-configuration-file).
+
+A proper approach is to create a third, dedicated repository under the
+`ece100/root/a0` group. Here, we can refer to it as `ece100/root/a0/ci`.
 
 ```bash
 home_path=$(pwd)
@@ -40,8 +42,8 @@ ece100
         └── assessment
 ```
 
-Then we can configure the `ece100/root/a0/starter` and students' repos to use
-that file for pipelines.
+We can then configure both the `ece100/root/a0/starter` repository and the
+student repositories to use that file for their CI/CD pipelines.
 
 ```bash
 # :id will be properly replaced if we are inside the git repo
@@ -52,10 +54,12 @@ glab api --method PUT /projects/:id
 
 ## Validate that students are prevented from running their own `.gitlab-ci.yml` files
 
-We can try change the current `.gitlab-ci.yml` under the `starter` repo.
-However, GitLab will not use it to create the pipeline.
+We can try modifying the current `.gitlab-ci.yml` file in the `starter`
+repository. However, GitLab will not use it to create the pipeline if
+`CI_CONFIG_PATH` is set.
 
-For example, let's change the `.gitlab-ci.yml` in the `starter` repo as:
+For example, let's update the `.gitlab-ci.yml` file in the `starter` repository
+to modify the previous two-stage pipeline into a single-stage pipeline.
 
 ```yaml
 welcome:

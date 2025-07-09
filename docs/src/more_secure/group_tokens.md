@@ -1,9 +1,12 @@
 # Group access token
 
-Personal access token may be too powerful for a single course. Additionally, in
-our previous setup, you exposed it inside the `.gitlab-ci.yml` under the
-`ece100/root/a0/starter` repo, which can be considered highly unsecure. To make
-it safer, we can use a group access token instead.
+A personal access token may be too powerful for managing a single course.
+Additionally, in our previous setup, the token was exposed inside the
+`.gitlab-ci.yml` file under the `ece100/root/a0/starter` repository, which is
+considered highly insecure, as the starter repository will eventually be
+distributed to students.
+
+To improve security, we can use a **group access token** instead.
 
 ```json
 // group_access_token_config.json

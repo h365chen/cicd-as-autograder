@@ -1,14 +1,14 @@
 # GitLab As An Example
 
-I choose GitLab as the Git hosting service since it is free to create a
-self-hosting instance using GitLab. It also supports various external
-authentication and authorization so it should be trivial to use your own
-authentication and authorization service or LMS for user logins.
+I chose GitLab as the Git hosting service because it allows the creation of a
+self-hosted instance for free. It also supports various external authentication
+and authorization methods, making it straightforward to integrate with your own
+authentication system or LMS for user logins.
 
-To facilitate using GitLab to implement an auto-grading system, I group features
-that have been discussed in the previous chapter into three categories, namely
-*Course and Assignment Creation*, *Assessment*, and *Report*, and I will discuss
-how features in each category can be implemented.
+To facilitate the use of GitLab in implementing an auto-grading system, I have
+grouped the features discussed in the previous chapter into three categories:
+*Course and Assignment Creation*, *Assessment*, and *Report*. I will discuss how
+the features in each category can be implemented.
 
 ## Course and Assignment Creation
 
