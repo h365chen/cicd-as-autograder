@@ -14,7 +14,28 @@ Therefore, we have two options:
    `stu-00`), and then push it to the desired target group, such as
    `ece100/term-00/a0/stu-00`.
 
-There are many tools available to automate this process. I will demonstrate one
-approach to achieve it.
+We will go with the second option here. There are many tools available to
+automate this process. Here, I will demonstrate the second approach to create
+students' repos.
 
-(TODO)
+For example, if we want to set up the repo for student `stu-00`, then we can do:
+
+```bash
+home_path=$(pwd)
+
+glab repo clone ece100/root/a0/starter ece100/term-00/a0/stu-00
+cd ece100/term-00/a0/stu-00
+git remote remove origin
+git reset $(git commit-tree HEAD^{tree} -m "Initial commit")
+glab repo create --group ece100/term-00/a0 --name stu-00 --private
+git push --set-upstream origin main
+
+cd $home_path
+```
+
+We then need to set up its CI/CD.
+
+```bash
+glab api --method PUT /projects/:id \
+    --field ci_config_path=".gitlab-ci.yml@ece100/root/a0/ci"
+```
