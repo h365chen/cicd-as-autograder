@@ -93,7 +93,7 @@ glab api --method GET /groups/ece100/variables
 git clone https://${CI_FEEDBACK_REPO_USER}:${CI_FEEDBACK_REPO_TOKEN}@git.uwaterloo.ca/ece100/root/a0/assessment
 ```
 
-(See `config/sample_with_env_var.gitlab-ci.yml`)
+(See [`config/sample_with_env_var.gitlab-ci.yml`](https://github.com/h365chen/cicd-as-autograder/blob/main/utilities/config/sample_with_env_var.gitlab-ci.yml))
 
 However, we still need to be careful when running student's code, which may try
 to read the environment variables and log them, although GitLab will try its

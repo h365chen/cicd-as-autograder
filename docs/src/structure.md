@@ -100,10 +100,9 @@ Therefore, necessary features of an auto-grading system are as follows.
     - can create group assignments
     - can upload starter files for an assignment
     - can configure assignment deadlines
-  - ~can manage individual students' enrolments~
+  - **Do NOT need to manage students' enrolments** ~can manage individual students' enrolments~
     <!-- - can register a student for a course -->
     <!-- - can remove a student from a course -->
-  - Do **NOT** need to manage students' enrolments
   - can manage submissions
     - can dowload all submissions
     - can dowload students' last submissions
@@ -113,8 +112,7 @@ Therefore, necessary features of an auto-grading system are as follows.
       student
     - can see detailed test outcomes of a single submission
     - can download grades in a csv file
-  - **can look for the correct version of the test code and use that for grading**
-  - ~can create test cases for assignments~
+  - **can look for the correct version of the test code and use that for grading** ~can create test cases for assignments~
   <!--   - each test case is usually a script that compile and executes student's -->
   <!--     code -->
   <!--   - each test case usually compares the expected output and the actual output -->

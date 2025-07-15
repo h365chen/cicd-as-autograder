@@ -23,7 +23,7 @@ git pull origin main
 cp $home_path/scripts/config/sample_with_env_var.gitlab-ci.yml .gitlab-ci.yml
 git add .gitlab-ci.yml
 git commit -m "add .gitlab-ci.yml"
-git push
+git push --set-upstream origin main
 
 cd $home_path
 ```
@@ -48,7 +48,7 @@ student repositories to use that file for their CI/CD pipelines.
 ```bash
 # :id will be properly replaced if we are inside the git repo
 cd ece100/root/a0/starter
-glab api --method PUT /projects/:id
+glab api --method PUT /projects/:id \
     --field ci_config_path=".gitlab-ci.yml@ece100/root/a0/ci"
 ```
 

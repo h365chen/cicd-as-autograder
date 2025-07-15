@@ -22,16 +22,17 @@ either a pass or a fail. If a test case fails, log messages printed to standard
 output help students diagnose bugs.
 
 Comparing Marmoset to CI/CD pipelines in Git hosting services, the most
-significant difference from a student’s perspective is visibility. Not all test
+significant difference from a student's perspective is visibility. Not all test
 results are visible in Marmoset, as instructors control which test cases are
-shown and when. From an instructor’s perspective, Marmoset offers more
-convenience in managing student enrollments. For instance, instructors can
-upload a class file to register students and easily download each student’s
+shown and when. From an instructor's perspective, Marmoset offers more
+convenience in managing student enrollments (although I would argue this is not
+a critical feature for an auto-grading system). For instance, instructors can
+upload a class file to register students and easily download each student's
 latest submission.
 
 However, in my experience, the lack of code comparison between consecutive
 submissions in Marmoset is a major drawback. It is also not straightforward to
-comment on a student’s code. These features, however, are already well-supported
+comment on a student's code. These features, however, are already well-supported
 by many Git hosting services. Furthermore, many auto-grading systems have not
 seen meaningful updates in years. In contrast, CI/CD features in Git hosting
 services are continually improving, with additions like secret variables and
