@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# This script will create only one assignment `a0`
+# TODO: support creating multiple assignments
+
 COURSE_NAME=ece100
 HOSTNAME=git.uwaterloo.ca
 API_HOST="${HOSTNAME}" # TODO non-80 port will cause problems in ci_config_path
@@ -95,6 +98,22 @@ glab api --silent --method POST /projects/:id/protected_branches \
      --field merge_access_level=30
 cd $home_path
 
+# ===
+# setting up CI/CD
+
+mkdir ${COURSE_NAME}/root/a0/ci
+cd ${COURSE_NAME}/root/a0/ci
+git init
+glab repo create --defaultBranch main --group ${COURSE_NAME}/root/a0 --readme --private
+git pull origin main
+
+cp $home_path/config/sample_with_env_var.gitlab-ci.yml .gitlab-ci.yml
+git add .gitlab-ci.yml
+git commit -m "ci: add .gitlab-ci.yml"
+git push --set-upstream origin main
+
+cd $home_path
+
 
 # ====
 # Setup gitlab-runner
@@ -168,6 +187,8 @@ mkdir ${COURSE_NAME}/term-00/a0
 # ===
 # make it more secure - environment variables
 
+echo "=== Make CI/CD more secure ==="
+
 # create a deploy token
 
 # :id will be properly replaced if we are inside the git repo
@@ -175,9 +196,9 @@ cd ${COURSE_NAME}/root/a0/assessment/
 
 gl_response=$(
     glab api --method POST /projects/:id/deploy_tokens \
-        --header "Content-Type:application/json" \
-        --input $home_path/config/deploy_token_config.json
-)
+         --header "Content-Type:application/json" \
+         --input $home_path/config/deploy_token_config.json
+           )
 
 check_response "$gl_response"
 
@@ -196,33 +217,12 @@ glab api --silent --method POST /groups/${COURSE_NAME}/variables \
 
 cd $home_path
 
-echo "=== setting up CI config path ==="
-
 # :id will be properly replaced if we are inside the git repo
 cd ${COURSE_NAME}/root/a0/starter/
 
 glab api --silent --method PUT /projects/:id \
-     --field ci_config_path=".gitlab-ci.yml@${COURSE_NAME}/root/a0/assessment"
+     --field ci_config_path=".gitlab-ci.yml@${COURSE_NAME}/root/a0/ci"
 
 cd $home_path
 
-echo "=== MANUAL SETUP NEEDED ==="
-
-set -x
-cp config/sample.gitlab-ci.yml ${COURSE_NAME}/root/a0/starter/.gitlab-ci.yml
-{ set +x; } 2>/dev/null
-echo "The sample .gitlab-ci.yml has been copied into the starter repo"
-echo "You need to modify the <ACCESS_TOKEN> to your personal access token"
-echo "and the <COURSE> to make it work"
-echo ""
-echo "Once you've done it, use the following command to make a commit to test it"
-echo "  cd ${COURSE_NAME}/root/a0/starter/"
-echo "  git add .gitlab-ci.yml"
-echo "  git commit -m 'add .gitlab-ci.yml'"
-echo "  git push --set-upstream origin main"
-echo ""
-echo "You can verify it works by manually executing inside the starter repo"
-echo "  glab ci status"
-echo ""
-echo "You can use following commands to retrieve logs"
-echo "  glab ci trace"
+echo "=== DONE ==="
